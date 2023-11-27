@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import React from 'react'
 
 import './App.css'
 import { Box, Container, Divider, Stack, ThemeProvider, Unstable_Grid2, createTheme } from '@mui/material'
@@ -8,9 +9,17 @@ import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
 import MiniSideBar from './components/MiniSideBar'
 import Pruebas from './components/Pruebas/Pruebas'
 
+import {appf} from "./Fb"
+import Home from './Home'
+import Logueo from './Logueo'
+
 
 function App() {
   // sx={{border: "8px black dotted", margin:0, padding:0, width:"100%",}}
+
+  const [user, setUser] = React.useState(null);
+
+  
 
   const theme = createTheme({
     breakpoints:{
@@ -31,21 +40,10 @@ function App() {
    
 
     <ThemeProvider theme={theme}>
-      <Grid2 container width="100vw" height="100vh">
-        <Grid2 xs={0.8} sm={0.8}  border={1} borderColor="blue" sx={{display:{xs:"block", sm:"block", md:"none"}}}>
-          <MiniSideBar/>
-        </Grid2>
-        <Grid2  md={3}  border={1} borderColor="blue"
-        sx={{display:{xs:"none", sm:"none", md:"block"}}}
-        > 
-          <SideBar/>
-        </Grid2>
-        <Grid2 xs={11.2} sm={11.2} md={9} border={1} borderColor="red">
-          <Feed/>
-        </Grid2>
-    </Grid2>
-
-    {/* <Pruebas/> */}
+      <>{user ? <Home /> : <Logueo />}</>
+  
+  
+   
     </ThemeProvider>
   )
 }
