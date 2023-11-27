@@ -31,14 +31,16 @@ const Feed = () => {
     <Stack border={3} sx={{width:"100%", height:"100%"}}>
 
     
-        <Grid2 container md={12} sm={6}   border={0} direction="row" width="100%" >  {/* S1*/}
+        <Grid2 container md={12} sm={6}   border={0} direction="row" width="100%" bgcolor="#121212">  {/* S1*/}
           <Grid2 border={1} md={6}>
-            <IconButton>
-              <img src={ArrowL}/>
-            </IconButton>
-            <IconButton>
-              <img src={ArrowR}/>
-            </IconButton>
+            <Stack direction="row" spacing={1}>
+              <IconButton sx={{backgroundColor:"gray", height:"28px", width:"28px"}}>
+                <img src={ArrowL}/>
+              </IconButton>
+              <IconButton sx={{backgroundColor:"gray", height:"28px", width:"28px"}}>
+                <img src={ArrowR}/>
+              </IconButton>
+            </Stack>
           </Grid2>
           
           <Grid2 border={1} md={6}>
@@ -94,19 +96,22 @@ const Feed = () => {
 
 
       {/* S3*=============================================*/}
-      <Grid2 container
-        sx={{border:"2px pink dashed"}} height="100%" md={12}>
+      <Grid2 container bgcolor="#121212"
+        sx={{border:"0px pink dashed"}} height="100%" md={12}>
         
-        <Grid2 md={2} border={1}>
-            <Box border={4}>
-                <Typography variant='h5' sx={{}}>
+        <Grid2 md={2} border={0} >
+            <Box border={0}>
+                <Typography color="white" fontWeight="bold" variant='h6' sx={{}}>
                     Compañia
                 </Typography>
                 <List>
                     {compania.map((item, index) => {
                         return(
                             <List sx={{}} key={index}>
+                              <Typography color="lightgray">
                                 {item}
+                              </Typography>
+                                
                             </List>
                         )
                     })}
@@ -114,16 +119,19 @@ const Feed = () => {
             </Box>
         </Grid2>
         
-        <Grid2 md={2} border={1}>
-            <Box border={1}>
-                <Typography variant='h5' sx={{}} noWrap>
+        <Grid2 md={2} border={0}>
+            <Box border={0}>
+                <Typography color="white" fontWeight="bold" variant='h6' sx={{}} noWrap>
                     Comunidades
                 </Typography>
                 <List>
                     {comunidades.map((item, index) => {
                         return(
                             <List sx={{}} key={index}>
+                              <Typography color="lightgray">
                                 {item}
+                              </Typography>
+                                
                             </List>
                         )
                     })}
@@ -131,16 +139,19 @@ const Feed = () => {
             </Box>
         </Grid2>
 
-        <Grid2 md={2} border={1}>
+        <Grid2 md={2} border={0}>
             <Box>
-                <Typography variant='h5' sx={{}}>
+                <Typography color="white" fontWeight="bold" variant='h6' sx={{}}>
                     Enlaces útiles
                 </Typography>
                 <List>
                     {enlaces.map((item, index) => {
                         return(
                             <List sx={{}} key={index}>
-                                {item} 
+                              <Typography color="white">
+                                {item}
+                              </Typography>
+                                 
                             </List>
                         )
                     })}
@@ -148,16 +159,18 @@ const Feed = () => {
             </Box>
         </Grid2>
         
-        <Grid2 md={6} pers2={1} border={1}>
-          <Stack direction={{pers1:'column', md:'row'}} justifyContent="flex-end" pr={1.5}>
+        <Grid2 md={6} pers2={1} border={1} borderColor="white">
+          <Stack direction={{pers1:'column', md:'row'}} justifyContent="flex-end" pr={1.5}
+          width="100%"
+          >
               <IconButton aria-label="delete">
-                <Instagram />
+                <Instagram sx={{color:"lightgray"}}/>
               </IconButton>
               <IconButton aria-label="delete">
-                <Twitter />
+                <Twitter sx={{color:"lightgray"}}/>
               </IconButton>
               <IconButton aria-label="delete">
-                <Facebook />
+                <Facebook sx={{color:"lightgray"}}/>
               </IconButton>
           </Stack>
         </Grid2>
@@ -174,18 +187,19 @@ const Feed = () => {
 
 
       
-      <Grid2 container border={0} sx={{height:"38.9vh",}} md={12} alignItems="center">{/* S4*/}
+      <Grid2 container bgcolor="#121212"
+      border={0} sx={{height:"38.9vh",}} md={12} alignItems="center">{/* S4*/}
         <Grid2 border={0} md={12} sx={{ textAlign: 'center' }} >
           
             <Divider
-              sx={{borderColor:"gray",
+              sx={{borderColor:"lightgray",
                 width:"100%",
                                
                 }}/>
          
         </Grid2>
-        <Grid2 border={3} md={12} pl={2}>
-          <Typography variant="body1" color="initial">© 2023 Spotify AB</Typography>
+        <Grid2 border={0} md={12} pl={2}>
+          <Typography color="lightgray" variant="body1">© 2023 Spotify AB</Typography>
         </Grid2>              
         
         
