@@ -1,15 +1,38 @@
 import React from 'react'
-import {appf } from './Fb'
+import {app } from './Fb'
 
-const Logueo = () => {
+
+const Logueo = (props) => {
 
     const [isRegister, setRegister] = React.useState(false)
+
+    const createUser =(correo, password)=>{
+        app.auth().createUserWithEmailAndPassword(correo, password)
+        .then((userFirebase)=>{
+            console.log("usuario creado:", userFirebase);
+            props.setUser(userFirebase)
+        })
+    }
+
+    const startSession =(correo, password)=>{
+        app.auth().signInWithEmailAndPassword(correo, password)
+        .then((userFirebase)=>{
+            console.log("Sesión iniciada", userFirebase);
+            props.setUser(userFirebase)
+        })
+    }
 
     const submitHandler =(e)=>{
         e.preventDefault();
         const correo = e.target.emailField.value;
         const password = e.target.passwordField.value;
-        console.log(correo, password);
+        
+        if(isRegister){
+            createUser(correo, password)
+        }
+        if(!isRegister){
+            startSession(correo, password)
+        }
     }
 
   return (

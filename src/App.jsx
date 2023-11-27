@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import React from 'react'
 
 import './App.css'
@@ -9,7 +9,7 @@ import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
 import MiniSideBar from './components/MiniSideBar'
 import Pruebas from './components/Pruebas/Pruebas'
 
-import {appf} from "./Fb"
+import {app} from "./Fb"
 import Home from './Home'
 import Logueo from './Logueo'
 
@@ -19,6 +19,12 @@ function App() {
 
   const [user, setUser] = React.useState(null);
 
+  useEffect (() => {
+    app.auth().onAuthStateChanged((userFirebase)=>{
+      console.log("Ya tienes tu sesión iniciada con: ", userFirebase);
+      setUser(userFirebase);
+    })
+  }, [])
   
 
   const theme = createTheme({
@@ -40,7 +46,7 @@ function App() {
    
 
     <ThemeProvider theme={theme}>
-      <>{user ? <Home /> : <Logueo />}</>
+      <>{user ? <Home /> : <Logueo  setUser={setUser}/>}</>
   
   
    

@@ -117,8 +117,8 @@ const SideBar = () => {
                     <>
                         <Box key={index} border={2}> 
                             {/* <img src={cancion.data.albumOfTrack.coverArt.sources[0].url} alt=''/> */}
-                            <Typography>{cancion.data.name}</Typography>
-                            <a href={cancion.data.uri}><Button>Play song</Button></a>
+                            <Typography color="white">{cancion.data.name}</Typography>
+                            <a href={cancion.data.uri}><Button sx={{color:"#1ed760"}}>Play song</Button></a>
                         </Box>
                     </>
                         ))}

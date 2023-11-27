@@ -5,8 +5,13 @@ import ArrowR from '../../assets/arrowR.svg'
 import music1 from '../../assets/music1.png'
 import { Delete, Face, Facebook, Instagram, Twitter } from '@mui/icons-material'
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
+import {app} from "../../Fb"
 
 const Feed = () => {
+
+  const closeSession =()=>{
+    app.auth().signOut();
+  }
 
   const compania = [
     'Acerca de',
@@ -46,7 +51,9 @@ const Feed = () => {
           <Grid2 border={1} md={6}>
             <Stack direction="row" justifyContent="flex-end" spacing={2}>
               <Button variant='outlined' sx={{borderRadius:"25px"}}>Registrate</Button>
-              <Button variant='contained' sx={{borderRadius:"25px"}}>Iniciar sesión</Button>
+              <Button variant='contained' sx={{borderRadius:"25px"}} 
+              onClick={closeSession}
+              >Cerrar sesión</Button>
             </Stack>
           </Grid2>
         </Grid2>
