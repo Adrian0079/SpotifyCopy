@@ -32,6 +32,8 @@ function App() {
       values:{
         xs: 0,
         sm: 600,
+        pers3: 620,
+        pers4: 850,
         md: 900,
         lg: 1200,
         pers2: 1230,

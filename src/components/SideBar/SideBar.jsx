@@ -65,17 +65,17 @@ const SideBar = () => {
         display:{xs:"none", sm:"none", md:"block" }
     }}>
 
-        <Grid2 container border={5} rowSpacing={4} bgcolor="black">
-                <Grid2 md={12} border={1} bgcolor="#121212">
+        <Grid2 container border={0} rowSpacing={4} bgcolor="black">
+                <Grid2 md={12} border={0} bgcolor="#121212">
                     <Box component="img" src={spi} width="100%"/>
                 </Grid2>
-                <Grid2 xs={12} border={1} position="relative" bgcolor="#121212">
+                <Grid2 xs={12} border={0} position="relative" bgcolor="#121212">
                     <ListItemButton component="a" href="#simple-list" sx={{backgroundColor:"#121212"}}>
                     <Typography variant="body1" color="white">Inicio</Typography>
                     </ListItemButton>
                 </Grid2 >
 
-                <Grid2 md={12} border={1} width="40vw" alignItems="center" justifyContent="center" bgcolor="#121212">
+                <Grid2 md={12} border={0} width="40vw" alignItems="center" justifyContent="center" bgcolor="#121212">
                     <Stack direction="row" spacing={1.5} component="form" onSubmit={handleSearch}>
                         
                             <Button variant='contained' startIcon={<Search/>} type='submit'
@@ -184,6 +184,8 @@ const SideBar = () => {
 
         </Grid2>
 
+        <Box width="100%" border={0} borderColor="green" height="14.5vh" bgcolor="black">
+        </Box>                  
         
     
     </Stack>
